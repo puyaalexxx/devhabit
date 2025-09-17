@@ -12,3 +12,4 @@
 - Opentelemetry for monitoring and tracing
 - Seq for log management
 - Aspire Dashboard for metrics visualization
+- Github Actions for CI/CD
