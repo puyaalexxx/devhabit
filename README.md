@@ -10,3 +10,5 @@
 - Migrations and Data Seed
 - DTos for data transfer
 - Opentelemetry for monitoring and tracing
+- Seq for log management
+- Aspire Dashboard for metrics visualization
