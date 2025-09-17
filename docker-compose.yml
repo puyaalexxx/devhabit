@@ -4,3 +4,8 @@ services:
     build:
       context: .
       dockerfile: DevHabit.Api/Dockerfile
+  devhabit.seq:
+    image: datalust/seq:latest
+
+  devhabit.aspire-dashboard:
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:9.0
