@@ -4,6 +4,10 @@ services:
     build:
       context: .
       dockerfile: DevHabit.Api/Dockerfile
+
+  devhabit.postgres:
+    image: postgres:17.2 # or latest
+
   devhabit.seq:
     image: datalust/seq:latest
 

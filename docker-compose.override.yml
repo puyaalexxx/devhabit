@@ -23,6 +23,17 @@ services:
     depends_on:
       - devhabit.seq
       - devhabit.aspire-dashboard
+      - devhabit.postgres
+
+  devhabit.postgres:
+    environment:
+      POSTGRES_DB: devhabit
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./.containers/postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
 
   devhabit.seq:
     environment:
@@ -31,7 +42,7 @@ services:
       - ./.containers/seq_data:/data
     ports:
       - "5341:5341"
-      - "9091:80"
+      - "9092:80"
 
   devhabit.aspire-dashboard:
     environment:

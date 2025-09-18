@@ -13,3 +13,5 @@
 - Seq for log management
 - Aspire Dashboard for metrics visualization
 - Github Actions for CI/CD
+- PostgreSQL as the database
+- Migrations to manage database schema changes
