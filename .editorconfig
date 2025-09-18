@@ -70,6 +70,7 @@ csharp_style_expression_bodied_lambdas = true:none
 csharp_style_expression_bodied_local_functions = true:error
 csharp_prefer_system_threading_lock = true:suggestion
 csharp_space_around_binary_operators = before_and_after
+csharp_style_prefer_unbound_generic_type_in_nameof = true:suggestion
 
 [*.{cs,vb}]
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
@@ -422,6 +423,10 @@ dotnet_diagnostic.S4136.severity = none
 
 # S6605: Collection-specific "Exists" method should be used instead of the "Any" extension
 dotnet_diagnostic.S6605.severity = none
+
+#custom
+dotnet_diagnostic.VSSpell001.severity = none
+
 
 # S6781: JWT secret keys should not be disclosed
 dotnet_diagnostic.S6781.severity = none
