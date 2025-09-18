@@ -2,6 +2,8 @@
 
 public sealed class Habit
 {
+    //public Guid Id { get; set; } = Guid.CreateVersion7();
+
     public string Id { get; set; }
 
     public string Name { get; set; } = string.Empty;

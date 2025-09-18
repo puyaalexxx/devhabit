@@ -52,5 +52,46 @@ public class HabitsController(ApplicationDbContext dbContext) : ControllerBase
 
     }
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult<HabitDto>> GetHabitById(string id)
+    {
+        Habit? habit = await dbContext.Habits.Where(h => h.Id == id).FirstOrDefaultAsync();
 
+        if (habit == null)
+        {
+            return NotFound();
+        }
+
+        var habitDto = new HabitDto
+        {
+            Id = habit.Id,
+            Name = habit.Name,
+            Description = habit.Description,
+            Type = habit.Type,
+            Frequency = new FrequencyDto
+            {
+                Type = habit.Frequency.Type,
+                TimesPerPeriod = habit.Frequency.TimesPerPeriod
+            },
+            Target = new TargetDto
+            {
+                Value = habit.Target.Value,
+                Unit = habit.Target.Unit
+            },
+            Status = habit.Status,
+            IsArchived = habit.IsArchived,
+            EndDate = habit.EndDate,
+            Milestone = habit.Milestone == null ? null : new MilestoneDto
+            {
+                Current = habit.Milestone.Current,
+                Target = habit.Milestone.Target,
+            },
+            CreatedAtUtc = habit.CreatedAtUtc,
+            UpdatedAtUtc = habit.UpdatedAtUtc,
+            LastCompletedAtUtc = habit.LastCompletedAtUtc
+
+        };
+
+        return Ok(habitDto);
+    }
 }
